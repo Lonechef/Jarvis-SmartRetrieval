@@ -1,0 +1,12 @@
+
+pymongo
+pinecone-client
+sentence-transformers
+google-generativeai
+langchain
+tiktoken
+transformers
+torch
+pandas
+numpy
+python-dotenv
