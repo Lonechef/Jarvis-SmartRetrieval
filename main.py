@@ -17,15 +17,18 @@ def interactive_rag_demo():
         gemini_api_key=config['GEMINI_API_KEY']
     )
     
-    # Create and add sample documents
-    print("Creating sample documents...")
-    sample_files = create_sample_documents()
-    
-    print("Adding documents to RAG system...")
+    # Allow user to add a PDF document
+    pdf_path = input("Enter the absolute path to the PDF document you want to add (or leave blank to skip): ")
     advanced_rag = AdvancedRAGFeatures(rag)
-    doc_ids = advanced_rag.batch_add_documents(sample_files)
-    
-    print(f"Added {len(doc_ids)} documents successfully!")
+    if pdf_path:
+        print(f"Adding document: {pdf_path}...")
+        doc_id = rag.add_document(pdf_path)
+        if doc_id:
+            print(f"Added document with ID: {doc_id}")
+        else:
+            print(f"Failed to add document: {pdf_path}")
+    else:
+        print("Skipping document addition.")
     
     # Show stats
     stats = rag.get_document_stats()

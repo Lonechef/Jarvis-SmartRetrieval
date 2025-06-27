@@ -18,7 +18,7 @@ import torch
 
 # For document processing
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.document_loaders import PyPDFLoader, TextLoader
+from langchain_community.document_loaders import PyPDFLoader, TextLoader
 import tiktoken
 
 # Utilities
@@ -55,7 +55,7 @@ class RAGSystem:
         # Initialize Gemini if provided
         if gemini_api_key:
             genai.configure(api_key=gemini_api_key)
-            self.gemini_model = genai.GenerativeModel('gemini-pro')
+            self.gemini_model = genai.GenerativeModel('gemini-1.5-flash')
             self.has_llm = True
         else:
             self.has_llm = False

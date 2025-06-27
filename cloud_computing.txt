@@ -1,0 +1,7 @@
+
+        Cloud Computing provides on-demand access to computing resources over the internet.
+        Infrastructure as a Service (IaaS) provides virtualized computing infrastructure.
+        Platform as a Service (PaaS) offers development platforms in the cloud.
+        Software as a Service (SaaS) delivers software applications over the internet.
+        Serverless computing allows running code without managing servers.
+        

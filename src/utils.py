@@ -1,12 +1,14 @@
 
 import os
 from typing import List, Dict, Any
+from dotenv import load_dotenv
 
 def setup_environment():
     """
     Setup function with environment variables
     """
     # You'll need to set these environment variables or replace with your actual values
+    load_dotenv()
     config = {
         'MONGO_URI': os.getenv('MONGO_URI', 'mongodb://localhost:27017/'),
         'MONGO_DB_NAME': os.getenv('MONGO_DB_NAME', 'rag_database'),
@@ -14,6 +16,10 @@ def setup_environment():
         'PINECONE_INDEX_NAME': os.getenv('PINECONE_INDEX_NAME', 'rag-index'),
         'GEMINI_API_KEY': os.getenv('GEMINI_API_KEY', 'your-gemini-api-key')
     }
+    print("Environment setup complete with the following configuration:")
+    for key, value in config.items():
+        print(f"{key}: {value}")
+    print("Make sure to set the environment variables in your .env file or system.")
     return config
 
 def create_sample_documents():
